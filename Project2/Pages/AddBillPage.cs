@@ -167,9 +167,8 @@ public class AddBillPage : ContentPage
                                                 new ColumnDefinition(GridLength.Auto)
                                             },
                                             Children = {
-                                                new Entry()
-                                                    .Placeholder("31.12.2025")
-                                                    .PlaceholderColor(Colors.Gray)
+                                                new DatePicker()
+                                                    .Format("dd.MM.yyyy") // Tarih formatı
                                                     .TextColor(Colors.White)
                                                     .BackgroundColor(Colors.Transparent)
                                                     .CenterVertical(),
