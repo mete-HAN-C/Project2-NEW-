@@ -297,9 +297,21 @@ public class HealthPage : ContentPage
                 },
                 Children =
                 {
-                    CreateNavTab("🏠", "Ana Sayfa", 0),
-                    CreateNavTab("📅", "Takvim", 1),
-                    CreateNavTab("💰", "Bütçe", 2),
+                    CreateNavTab("🏠", "Ana Sayfa", 0)
+                    .GestureRecognizers(new TapGestureRecognizer()
+                    {
+                        Command = new Command(async () => await Navigation.PushAsync(new MainDashboardPage()))
+                    }),
+                    CreateNavTab("📅", "Takvim", 1)
+                    .GestureRecognizers(new TapGestureRecognizer()
+                    {
+                        Command = new Command(async () => await Navigation.PushAsync(new CalendarMainPage()))
+                    }),
+                    CreateNavTab("💰", "Bütçe", 2)
+                    .GestureRecognizers(new TapGestureRecognizer()
+                    {
+                        Command = new Command(async () => await Navigation.PushAsync(new BudgetPage()))
+                    }),
                     CreateNavTab("❤️", "Sağlık", 3, true)
                 }
             });

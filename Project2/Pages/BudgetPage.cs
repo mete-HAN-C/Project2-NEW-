@@ -178,6 +178,10 @@ public class BudgetPage : ContentPage
                                 }),
                                 CreateNavTab("💰", "Bütçe", 2, true), // Bütçe aktif
                                 CreateNavTab("❤️", "Sağlık", 3)
+                                .GestureRecognizers(new TapGestureRecognizer()
+                                {
+                                    Command = new Command(async () => await Navigation.PushAsync(new HealthPage()))
+                                }),
                             }
                         }
                     ).Row(4)

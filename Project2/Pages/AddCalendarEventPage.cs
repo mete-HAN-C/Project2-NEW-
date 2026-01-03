@@ -1,6 +1,7 @@
 ﻿using Microsoft.Maui;
 using Microsoft.Maui.Controls;
 using FmgLib.MauiMarkup;
+using MyAppMAUI.Pages;
 
 namespace Project2.Pages;
 public class AddCalendarEventPage : ContentPage
@@ -85,8 +86,16 @@ public class AddCalendarEventPage : ContentPage
                                     Command = new Command(async () => await Navigation.PushAsync(new MainDashboardPage()))
                                 }),
                                 CreateNavTab("📅", "Takvim", 1, true), // isActive: true olduğu için bu mavi görünecek.
-                                CreateNavTab("💰", "Bütçe", 2),
+                                CreateNavTab("💰", "Bütçe", 2)
+                                .GestureRecognizers(new TapGestureRecognizer()
+                                {
+                                    Command = new Command(async () => await Navigation.PushAsync(new BudgetPage()))
+                                }),
                                 CreateNavTab("❤️", "Sağlık", 3)
+                                .GestureRecognizers(new TapGestureRecognizer()
+                                {
+                                    Command = new Command(async () => await Navigation.PushAsync(new HealthPage()))
+                                }),
                             }
                         }
                     ).Row(1) // Alt barı Grid'in en alt satırına yerleştirir.
